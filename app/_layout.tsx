@@ -13,4 +13,4 @@ export default function _layout() {
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({}) 
