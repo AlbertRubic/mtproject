@@ -3,7 +3,8 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Platform } from 'r
 import { FontAwesome } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
-const LoginScreen = () => {
+const SignupScreen = () => {
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,12 +16,22 @@ const LoginScreen = () => {
       <View style={styles.innerContainer}>
         <View style={styles.logoContainer}>
           <Text style={styles.title}>KUMON nahLEDGE</Text>
+          {/* Replace with your actual logo */}
           <View style={styles.logo} />
           <Text style={styles.subtitle}>Learn Math Today</Text>
         </View>
         <View style={styles.formContainer}>
-          <Text style={styles.header}>Sign In To Your Account</Text>
+          <Text style={styles.header}>Sign Up</Text>
           <View style={styles.inputGroup}>
+            <View style={styles.inputWrapper}>
+              <Text>Full Name</Text>
+              <TextInput
+                style={styles.input}
+                placeholder='Bini Mikhamot'
+                value={fullName}
+                onChangeText={setFullName}
+              />
+            </View>
             <View style={styles.inputWrapper}>
               <Text>Email Address</Text>
               <TextInput
@@ -44,17 +55,10 @@ const LoginScreen = () => {
             </View>
           </View>
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Sign In</Text>
+            <Text style={styles.buttonText}>Create Account</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.link}>Don't have an account? Sign Up</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.link}>Forgot Password</Text>
-          </TouchableOpacity>
-          <Text style={styles.orText}>OR</Text>
-          <TouchableOpacity style={styles.googleButton}>
-            <Text style={styles.googleButtonText}>Sign In With Google</Text>
+          <TouchableOpacity >
+            <Text style={styles.link}>Already have an account? Sign In</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -141,24 +145,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     textAlign: 'center',
   },
-  orText: {
-    marginVertical: 10,
-    fontSize: 16,
-    textAlign: 'center',
-    color: '#fff',
-  },
-  googleButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 25,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-  },
-  googleButtonText: {
-    marginLeft: 10,
-    fontSize: 16,
-  },
 });
 
-export default LoginScreen;
+export default SignupScreen;
